@@ -16,15 +16,36 @@ struct ContentView: View {
 
     
     @StateObject var locationManager = LocationManager()
-
     
+    let place1: FancyPlace = FancyPlace(lat: 55.61259201984638, long: 12.993687792841314, thename: "Klaffbron", thedesc: "Det är en bro")
+
+    let place2: FancyPlace = FancyPlace(lat: 55.61121346105315, long: 12.994470997892961, thename: "Minc", thedesc: "Ett hus")
+
     var body: some View {
         VStack {
             Text("Hello, world!")
                 .padding()
             
-            Map(coordinateRegion: $region, showsUserLocation: true)
-                        .frame(height: 300)
+            Image(systemName: "map")
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: 20.0, height: 20.0)
+            
+            Map(coordinateRegion: $region, showsUserLocation: true, annotationItems: [place1,place2]) { loopplace in
+                    /*
+                    MapMarker(coordinate: place.location,
+                              tint: Color.purple)
+                    */
+                    MapAnnotation(coordinate: loopplace.location) {
+                        /*
+                        Rectangle().stroke(Color.blue).background(Color.red)
+                        .frame(width: 20, height: 20)
+                        */
+                        
+                        FancyMappinView(pininfo: loopplace)
+                    }
+                    
+                }
             
             
             if let location = locationManager.location {
@@ -48,41 +69,8 @@ struct ContentView_Previews: PreviewProvider {
 
 
 
-class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
-    let manager = CLLocationManager()
 
-    @Published var location: CLLocationCoordinate2D?
 
-    override init() {
-        super.init()
-        manager.delegate = self
-        manager.requestAlwaysAuthorization()
-    }
 
-    func requestLocation() {
-        //manager.requestLocation()
-        manager.startUpdatingLocation()
-    }
 
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        
-        if let firstloc = locations.first {
-            if(firstloc.horizontalAccuracy > 100)
-            {
-                // Dålig signal
-                
-            }
-        }
-        
-        location = locations.first?.coordinate
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        
-        print("Location något fel")
-        
-    }
-    
-    
-    
-}
+
