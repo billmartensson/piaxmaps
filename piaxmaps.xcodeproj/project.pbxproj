@@ -272,6 +272,11 @@
 				DEVELOPMENT_TEAM = 6SGQZ32758;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Position alltid";
+				INFOPLIST_KEY_NSLocationUsageDescription = "Position beskrivning";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Position när används";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -301,6 +306,11 @@
 				DEVELOPMENT_TEAM = 6SGQZ32758;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Position alltid";
+				INFOPLIST_KEY_NSLocationUsageDescription = "Position beskrivning";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Position när används";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
